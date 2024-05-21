@@ -1,7 +1,5 @@
 <h1>API DDD 2024</h1>
 
-<font color="red">Este texto é vermelho!</font>
-
 <h2>Tecnologias</h2>
 <ul>
 	<li>DDD como modelo de software</li>
