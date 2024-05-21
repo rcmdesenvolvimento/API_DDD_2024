@@ -33,7 +33,5 @@ namespace Infrastructure.Configuration
         {
             return "Server=DESKTOP-12RTGUP\\SQLEXPRESS;Database=api-ddd-2024;Trusted_Connection=True;";
         }
-
-
     }
 }

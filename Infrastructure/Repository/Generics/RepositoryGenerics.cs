@@ -8,7 +8,6 @@ namespace Infrastructure.Repository.Generics
 {
     public class RepositoryGenerics<T> : IGenerics<T>, IDisposable where T : class
     {
-
         private readonly DbContextOptions<ContextBase> _OptionsBuilder;
 
         public RepositoryGenerics()
@@ -41,6 +40,7 @@ namespace Infrastructure.Repository.Generics
                 return await data.Set<T>().ToListAsync();
             }
         }
+
         public async Task<T> GetEntityById(int id)
         {
             using (var data = new ContextBase(this._OptionsBuilder))
@@ -59,12 +59,12 @@ namespace Infrastructure.Repository.Generics
         }
 
         #region Disposed https://docs.microsoft.com/pt-br/dotnet/standard/garbage-collection/implementing-dispose
+
         // Flag: Has Dispose already been called?
-        bool disposed = false;
+        private bool disposed = false;
+
         // Instantiate a SafeHandle instance.
-        SafeHandle handle = new SafeFileHandle(IntPtr.Zero, true);
-
-
+        private SafeHandle handle = new SafeFileHandle(IntPtr.Zero, true);
 
         // Public implementation of Dispose pattern callable by consumers.
         public void Dispose()
@@ -72,7 +72,6 @@ namespace Infrastructure.Repository.Generics
             Dispose(true);
             GC.SuppressFinalize(this);
         }
-
 
         // Protected implementation of Dispose pattern.
         protected virtual void Dispose(bool disposing)
@@ -89,7 +88,7 @@ namespace Infrastructure.Repository.Generics
 
             disposed = true;
         }
-        #endregion
 
+        #endregion Disposed https://docs.microsoft.com/pt-br/dotnet/standard/garbage-collection/implementing-dispose
     }
 }
